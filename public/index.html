@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://kit.fontawesome.com/7bc2dbbe5a.js" crossorigin="anonymous"></script>
+    <title>Miki's Hot 100</title>
+  <body>
+    <div class="notification"></div>
+    <div id="ranker">
+      <div class="rank" id="firstRank">1</div>
+      <div class="rank">2</div>
+      <div class="rank">3</div>
+      <div class="rank">4</div>
+      <div class="rank">5</div>
+      <div class="rank">6</div>
+      <div class="rank">7</div>
+      <div class="rank">8</div>
+      <div class="rank">9</div>
+      <div class="rank">10</div>
+      <div class="rank yellow">11</div>
+      <div class="rank yellow">12</div>
+      <div class="rank yellow">13</div>
+      <div class="rank yellow">14</div>
+      <div class="rank yellow">15</div>
+      <div class="rank yellow">16</div>
+      <div class="rank yellow">17</div>
+      <div class="rank yellow">18</div>
+      <div class="rank yellow">19</div>
+      <div class="rank yellow">20</div>
+      <div class="rank yellow">21</div>
+      <div class="rank yellow">22</div>
+      <div class="rank yellow">23</div>
+      <div class="rank yellow">24</div>
+      <div class="rank yellow">25</div>
+      <div class="rank yellow">26</div>
+      <div class="rank yellow">27</div>
+      <div class="rank yellow">28</div>
+      <div class="rank yellow">29</div>
+      <div class="rank yellow">30</div>
+      <div class="rank orange">31</div>
+      <div class="rank orange">32</div>
+      <div class="rank orange">33</div>
+      <div class="rank orange">34</div>
+      <div class="rank orange">35</div>
+      <div class="rank orange">36</div>
+      <div class="rank orange">37</div>
+      <div class="rank orange">38</div>
+      <div class="rank orange">39</div>
+      <div class="rank orange">40</div>
+      <div class="rank red">41</div>
+      <div class="rank red">42</div>
+      <div class="rank red">43</div>
+      <div class="rank red">44</div>
+      <div class="rank red">45</div>
+      <div class="rank red">46</div>
+      <div class="rank red">47</div>
+      <div class="rank red">48</div>
+      <div class="rank red">49</div>
+      <div class="rank red" id="lastRank">50</div>
+    </div>
+    <div id="wrapper">
+      <div id="unitWrapper">
+      <div v-for="(request, index) in requests" id="unit" :key="index">
+          <iframe :src="request.text" id="spotifyEmbed" width="80" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+          <h2 id="title">{{ request.songN }}</h2>
+          <div id="votes">
+              <span  id="up" @click="upV(request.id)">
+                <i class="fas fa-arrow-up fa-2x" v-if="request.isUpvoted" style="color: rgb(1, 187, 1);"></i>
+                <i class="fas fa-arrow-up fa-2x" v-else style="color: #888;"></i>
+                <p class="votesNumber" style="color: rgb(1, 187, 1);">{{ request.upVotes }}</p>
+              </span>
+              <span id="down"  @click="downV(request.id)">
+                <i class="fas fa-arrow-down fa-2x" v-if="request.isDownvoted" style="color: red;"></i>
+                  <i class="fas fa-arrow-down fa-2x" v-else style="color: #888;"></i>
+                  <p class="votesNumber" style="color: red;">{{ request.downVotes }}</p>
+              </span>
+          </div>
+      </div>
+    </div>
+      <form class="form101">
+        <input class="linktxt" id="spotifyembd" type="text" placeholder="Paste Spotify Embed Link Here..." required>
+        <input class="linktxt" id="songname" type="text" placeholder="Song name and artist Here..." required>
+        <button type="submit" class="submitButton">Submit</button>
+      </form>
+  </div>
+
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/7.19.1/firebase-app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<script src="/__/firebase/7.19.1/firebase-auth.js"></script>
+<script src="/__/firebase/7.19.1/firebase-firestore.js"></script>
+<script src="/__/firebase/7.19.1/firebase-functions.js"></script>
+
+<script src="/__/firebase/7.19.1/firebase-analytics.js"></script>
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+<script src="./js/app.js"></script>
+<script src="./js/auth.js"></script>
+  </body>  
+</html>
